@@ -78,8 +78,7 @@ void init_screen8(char *vram, int x, int y)
 void putfont8(char *vram, int xsize, int x, int y, char c, char *font)
 {
 	int i;
-	char *p;
-	char d; /* data */;
+	char *p, d /* data */;
 	for (i = 0; i < 16; i++) {
 		p = vram + (y + i) * xsize + x;
 		d = font[i];
@@ -94,7 +93,6 @@ void putfont8(char *vram, int xsize, int x, int y, char c, char *font)
 	}
 	return;
 }
-
 
 
 void putfonts8_asc(char *vram, int xsize, int x, int y, char c, unsigned char *s)
@@ -189,9 +187,7 @@ void putfonts8_asc(char *vram, int xsize, int x, int y, char c, unsigned char *s
 			putfont8(vram, xsize, x+8, y, c, hangul + (sec+1) * 16);
 			putfont8(vram, xsize, x, y, c, hangul + third * 16);
 			putfont8(vram, xsize, x+8, y, c, hangul + (third+1) * 16);
-	
-		
-			x += 8;
+			
 
 		}else{
 			putfont8(vram, xsize, x, y, c, hankaku + *s * 16);

@@ -6,7 +6,7 @@
 void HariMain(void)
 {
 	struct BOOTINFO *binfo = (struct BOOTINFO *) ADR_BOOTINFO;
-	unsigned char  mcursor[256];
+	unsigned char s[40], mcursor[256];
 	int mx, my;
 
 	init_gdtidt();
@@ -69,6 +69,7 @@ void HariMain(void)
 	putfonts8_asc(binfo->vram, binfo->scrnx, 288, 0, COL8_FFFFFF, s19);
 
 	putfonts8_asc(binfo->vram, binfo->scrnx, 0, 32, COL8_FFFFFF, "ABC123");
+
 
 	io_out8(PIC0_IMR, 0xf9); /* PIC1와 키보드를 허가(11111001) */
 	io_out8(PIC1_IMR, 0xef); /* 마우스를 허가(11101111) */
