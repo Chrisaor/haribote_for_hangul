@@ -23,7 +23,7 @@ void HariMain(void)
 	//한글 문자 출력을 위한 배열 (1배열 = 1글자)
 	unsigned char s1[20], s2[20], s3[20], s4[20], s5[20], s6[20], s7[20],
 				s8[20], s9[20], s10[20], s11[20], s12[20], s13[20], s14[20],
-				s15[20], s16[20], s17[20], s18[20], s19[20];
+				s15[20], s16[20], s17[20], s18[20], s19[20], k1[2], k2[2], k3[2];
 
     
 	//    ㄱ~ㅎ       ㅑ(3)    ㄹㅁ(10)    
@@ -68,8 +68,16 @@ void HariMain(void)
 	putfonts8_asc(binfo->vram, binfo->scrnx, 272, 0, COL8_FFFFFF, s18);
 	putfonts8_asc(binfo->vram, binfo->scrnx, 288, 0, COL8_FFFFFF, s19);
 
-	putfonts8_asc(binfo->vram, binfo->scrnx, 0, 32, COL8_FFFFFF, "ABC123");
 
+	k1[0] = 0x84, k1[1] = 0x00; //ㄱ
+	k2[0] = 0x80, k2[1] = 0x40; //ㅏ
+	k3[0] = 0x80, k2[1] = 0x00; //fill
+
+
+
+
+	putfonts8_asc(binfo->vram, binfo->scrnx, 0, 32, COL8_FFFFFF, k1);
+	putfonts8_asc(binfo->vram, binfo->scrnx, 16, 32, COL8_FFFFFF, k2);
 
 	io_out8(PIC0_IMR, 0xf9); /* PIC1와 키보드를 허가(11111001) */
 	io_out8(PIC1_IMR, 0xef); /* 마우스를 허가(11101111) */
